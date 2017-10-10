@@ -90,5 +90,16 @@ class WorkingWithListsP07Test extends FunSuite {
     assert(r == (List('a, 'c, 'd), 'b))
   }
 
+  test("Insert an element at a given position into a list.") {
+    val r = insertAt('new, 1, List('a, 'b, 'c, 'd))
+    assert(r == List('a, 'new, 'b, 'c, 'd))
+  }
+
+
+  test("Create a list containing all integers within a given range.") {
+    val r = range(4, 9)
+    assert(r == List(4, 5, 6, 7, 8, 9))
+  }
+
 
 }

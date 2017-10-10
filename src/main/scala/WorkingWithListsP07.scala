@@ -75,9 +75,20 @@ object WorkingWithListsP07 {
     tmp._2 ::: tmp._1
   }
 
-  def removeAt[T](n: Int, ls: List[T]): (List[T], T) = {
+  def removeAt[T](n: Int, ls: List[T]): (List[T], _) = {
     val tmp = ls.splitAt(n)
     (tmp._1 ::: tmp._2.tail, tmp._2.head)
+  }
+
+  def insertAt[T](elem: T, n: Int, list: List[T], result: List[T] = Nil): List[T] = {
+    list match {
+      case x :: xs => if (n != 0) insertAt(elem, n - 1, xs, x :: result) else insertAt(elem, n - 1, xs, x :: elem :: result)
+      case _ => result.reverse
+    }
+  }
+
+  def range(n: Int, k: Int): List[_] = {
+    if (n <= k) n :: range(n + 1, k) else Nil
   }
 
 }
